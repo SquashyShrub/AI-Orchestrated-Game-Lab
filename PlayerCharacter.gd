@@ -108,4 +108,3 @@ func _apply_sprite_billboard() -> void:
 
 	if sprite_yaw_offset_degrees != 0.0:
 		sprite.rotate_y(deg_to_rad(sprite_yaw_offset_degrees))
-
