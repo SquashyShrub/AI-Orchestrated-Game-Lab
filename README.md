@@ -11,7 +11,7 @@ Developed as a **personal research project** into AI-Native Software Engineering
 
 ### 💻 Tech Stack
 - **Language**: GDScript (Python-like syntax for Godot)
-- **Frameworks/Tools**: Godot 4.4, Cursor (LLM-based IDE), Meshy (3D Generation), Scenario (2D Genereation), ElevenLabs (Dialogue)
+- **Frameworks/Tools**: Godot 4.4, Cursor (LLM-based IDE), Meshy (3D Generation), Scenario (2D Generation), ElevenLabs (Dialogue)
 - **Environment**: Git Version Control | Windows
 
 ### 🚀 Key Features
