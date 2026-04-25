@@ -21,9 +21,11 @@ Developed as a **personal research project** into AI-Native Software Engineering
 
 ### 🧠 Engineering Challenge
 **Problem**: During the integration of the Meshy-generated 3D floor, the engine initially treated the .glb file as a non-collidable spatial node, causing the player character to fall through the world.
+
 **Solution**: I resolved this by accessing the underlying MeshInstance3D resources and programmatically generating a Trimesh Static Body collision layer. This ensured that the physics engine could perform precise vertex-based calculations against the irregular stone floor geometry.
 
 **Problem**: Initial code generation via Cursor resulted in old syntax or improper use of signals/variables. 
+
 **Solution**: I implemented a specialized `.cursorrules` configuration file to explicitly define rules and requirements. 
 
 ---
