@@ -22,8 +22,11 @@ class_name PlayerCharacter
 @export var sprite_path: NodePath
 @export var lock_billboard_to_yaw_only: bool = true
 @export var sprite_yaw_offset_degrees: float = 180.0
+@export var flip_deadzone: float = 0.05
+@export var flip_invert: bool = false
 
 var _gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity", 9.8)
+var _last_move_x: float = 0.0
 
 
 func _physics_process(delta: float) -> void:
@@ -58,6 +61,8 @@ func _apply_movement(delta: float) -> void:
 		desired_dir = _get_movement_basis() * Vector3(input_2d.x, 0.0, input_2d.y)
 		desired_dir.y = 0.0
 		desired_dir = desired_dir.normalized()
+		if absf(input_2d.x) > flip_deadzone:
+			_last_move_x = input_2d.x
 
 	var desired_velocity := desired_dir * move_speed
 
@@ -108,3 +113,15 @@ func _apply_sprite_billboard() -> void:
 
 	if sprite_yaw_offset_degrees != 0.0:
 		sprite.rotate_y(deg_to_rad(sprite_yaw_offset_degrees))
+
+	var sprite_3d := sprite as Sprite3D
+	if sprite_3d != null:
+		# Why: Billboard handles facing; flip_h handles left/right mirroring
+		# based on the player's last horizontal movement input.
+		var moving_right := _last_move_x > flip_deadzone
+		var moving_left := _last_move_x < -flip_deadzone
+		if moving_right or moving_left:
+			var flip_h := moving_left
+			if flip_invert:
+				flip_h = not flip_h
+			sprite_3d.flip_h = flip_h
