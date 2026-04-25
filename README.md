@@ -1,8 +1,8 @@
 # VibeShift
-**Current Version:** `v0.0.1-alpha` | **Last Updated:** 2026-4-26
+**Current Version:** `v0.0.1-alpha` | **Last Updated:** 2026-04-26
 > A 2D/3D hybrid "Vertical Slice" prototype designed to test the orchestration of AI-native development tools within the Godot Engine.
 
-![Screenshot/GIF Link](Add a link to an image of the app or terminal output here)
+<img width="922" height="614" alt="VibeShiftAlpha" src="https://github.com/user-attachments/assets/2b77e69d-2b42-4921-952f-8e2c3b7db7e9" />
 
 ---
 
